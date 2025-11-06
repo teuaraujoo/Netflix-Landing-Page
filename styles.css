@@ -5,20 +5,31 @@
     --cor-secundaria: #e50914;
     --font-primaria: 'Inter';
     --font-secundaria: Arial, Helvetica, sans-serif;
+    --arredondamento: 0.4rem;
 }
 
 * {
     padding: 0;
     margin: 0;
     color: var(--cor-primaria);
+    box-sizing: border-box;
 }
 
-body, html {
+body {
     height: 100%;
     width: 100%;
-    background-image: url(/images/netflix-bg.jpg);
+    background-color: black;
 }
 
+#main::before {
+    content: "";
+    background: url(/images/netflix-bg.jpg) no-repeat center center/cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity: 0.3;
+    z-index: -1;
+}
 
 .nav-bar {
     display: flex;
@@ -48,6 +59,17 @@ body, html {
     gap: 1rem;
 }
 
+.right-side select {
+    background: transparent;
+    border-radius: 0.4rem;
+    padding: 0.2rem 0.6rem;
+    cursor: pointer;
+}
+
+.right-side select option {
+    background: rgb(32, 32, 32);
+}
+
 .right-side a {
     text-decoration: none;
     font-family: var(--font-primaria);
@@ -74,6 +96,7 @@ body, html {
     height: 90vh;
     display: flex;
     justify-content: center;
+    z-index: 99;
 }
 
 .content {
@@ -96,4 +119,34 @@ body, html {
     font-size: 1.5rem;
 }
 
+.forms {
+    font-family: var(--font-primaria);
+    color: var(--cor-primaria);
+    text-decoration: none;
+}
 
+.forms input {
+    width: 25rem;
+    padding: 0.9rem;
+    background-color: rgba(0, 0, 0, 0.432);
+    margin-right: 1rem;
+    border-radius: 0.2rem;
+    border: solid 1px white;
+}
+
+.forms button {
+    padding: 0.6rem 2rem;
+    background-color: var(--cor-secundaria);
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 0.6rem;
+    border: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.forms button:hover {
+    transform: scale(0.9);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 5px var(--cor-secundaria);
+}
